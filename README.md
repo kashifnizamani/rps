@@ -1,1 +1,1 @@
-# rps
+# This is a simple console based game of rock paper Scissors made while going through the course of web dev on The Odin Project
