@@ -1,11 +1,11 @@
-let computer_choice = Math.floor(Math.random() * 3) + 1;
+
 
 function getComputerChoice(){
+    let computer_choice = Math.floor(Math.random() * 3) + 1;
 
     switch(computer_choice){
   case 1:
      return "rock";
-
   break;
   case 2:
     return "paper";
@@ -18,7 +18,6 @@ function getComputerChoice(){
 
 }
 
-console.log(getComputerChoice())
 
 function getHumanChoice(){
 
@@ -30,7 +29,9 @@ function getHumanChoice(){
     else 
     return 'scissor';
 }
-let human_score, computer_score = 0;
+let human_score = 0
+let computer_score = 0;
+
 function playRound(humanChoice, computerChoice){
     if(humanChoice === computerChoice){
         console.log("its a draw! You both chose " + humanChoice);
@@ -38,30 +39,57 @@ function playRound(humanChoice, computerChoice){
     else if(humanChoice === 'rock' && computerChoice === 'paper'){
        
             console.log('you lose! Paper beats Rock' )
+            ++computer_score;
     }
     else if(humanChoice === 'rock' && computerChoice === 'scissor'){
        
         console.log('you win!!! Rock beats Scissor' )
+        ++human_score;
 }
 else if(humanChoice === 'paper' && computerChoice === 'rock'){
        
     console.log('you win!! Paper beats Rock' )
+    ++human_score;
 }
 else if(humanChoice === 'paper' && computerChoice === 'scissor'){
        
     console.log('you lose! Scissor beats Paper' )
+    ++computer_score;
 }
 else if(humanChoice === 'scissor' && computerChoice === 'paper'){
        
     console.log('you win! Scissor beats Paper' )
+    ++human_score;
 }
 else if(humanChoice === 'scissor' && computerChoice === 'rock'){
        
     console.log('you lose!  Rock beats Scissor' )
+    ++computer_score;
 }
 
 }
 
-const humanSelection = getHumanChoice().toLowerCase();
-const computerSelection = getComputerChoice();
-console.log(playRound(humanSelection, computerSelection));
+
+
+let humanSelection;
+let computerSelection;
+function playGame(){
+    for(let i = 0; i < 5; i++){
+         humanSelection = getHumanChoice().toLowerCase();
+         computerSelection = getComputerChoice();
+        console.log(playRound(humanSelection, computerSelection));
+    }
+    if(human_score > computer_score){
+        console.log(human_score + ' is greater than ' + computer_score + '!! you win:)');
+    }
+    else if(computer_score > human_score){
+        console.log(human_score + ' is less than ' + computer_score + '!! you lose:(');
+}
+    else{
+        console.log('the game concluded in a draw')
+}
+
+}
+playGame();
+
+
