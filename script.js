@@ -1,3 +1,20 @@
+const btn = document.querySelectorAll("button");
+
+function handleClick(e){
+    console.log(e.target.textContent);
+}
+
+btn.forEach(button => {
+    playRound(getHumanChoice(), getComputerChoice())
+    button.addEventListener("click", handleClick);
+})
+
+
+
+
+
+
+
 
 
 function getComputerChoice(){
@@ -74,7 +91,7 @@ else if(humanChoice === 'scissor' && computerChoice === 'rock'){
 let humanSelection;
 let computerSelection;
 function playGame(){
-    for(let i = 0; i < 5; i++){
+  
          humanSelection = getHumanChoice().toLowerCase();
          computerSelection = getComputerChoice();
         console.log(playRound(humanSelection, computerSelection));
@@ -89,7 +106,7 @@ function playGame(){
         console.log('the game concluded in a draw')
 }
 
-}
+
 playGame();
 
 
